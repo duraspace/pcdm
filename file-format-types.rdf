@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:udfrs="http://www.udfr.org/onto#">
+  <owl:Ontology rdf:about="http://pcdm.org/file-format-types#">
+    <rdfs:comment xml:lang="en">PCDM File Format Genre ontology.</rdfs:comment>
+    <rdfs:label xml:lang="en">PCDM File Format Genres</rdfs:label>
+  </owl:Ontology>
+  <udfrs:GenreFacetType rdf:ID="Document">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Document" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#DocumentGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Archive">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Archive" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Aggregate" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#AggregateGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Database">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Database" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#DatabaseGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Dataset">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Dataset" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#DatasetGenre" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/Dataset" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Software">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Software" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/Software" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Email">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Email" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#EmailGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Executable">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Software" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Executable" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#ExecutableGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="FileHash">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileHash" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Font">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Font" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="GIS">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Dataset" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/GIS" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Model">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#ModelGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Website">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Website" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Unknown">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#Unknown" />
+  </udfrs:GenreFacetType>
+  <!-- All text genres -->
+  <udfrs:GenreFacetType rdf:ID="Text">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#TextDocument" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#TextGenre" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/Text" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="PageDescription">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PaginatedTextDocument" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/PageDescription" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#PageDescriptionGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="UnstructuredText">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PlainTextDocument" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/UnstructuredText" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="StructuredText">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/StructuredText" />
+  </udfrs:GenreFacetType>
+  <!-- Structured text genres -->
+  <udfrs:GenreFacetType rdf:ID="SourceCode">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="StructuredText" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#SourceCode" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Markup">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="StructuredText" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/MarkupText" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="HTML">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Markup" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#HTMLDocument" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Presentation">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Presentation" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Presentation" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#PresentationGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Spreadsheet">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Spreadsheet" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Spreadsheet" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#SpreadsheetGenre" />
+  </udfrs:GenreFacetType>
+  <!-- All media genres -->
+  <udfrs:GenreFacetType rdf:ID="MediaList">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#MediaList" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Media">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Media" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Audio">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#SoundGenre" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Audio" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Audio" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/Sound" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Video">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#MovingImageGenre" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/Video" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Video" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/MovingImage" />
+  </udfrs:GenreFacetType>
+  <!-- Image genres -->
+  <udfrs:GenreFacetType rdf:ID="Image">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <owl:sameAs rdf:resource="http://www.udfr.org/onto#StillImageGenre" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Image" />
+    <owl:sameAs rdf:resource="http://purl.org/dc/elements/1.1/StillImage" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="RasterImage">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Image" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RasterImage" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/RasterImage" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="VectorImage">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Image" />
+    <owl:sameAs rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#VectorImage" />
+    <owl:sameAs rdf:resource="http://reference.data.gov.uk/technical-registry/VectorImage" />
+  </udfrs:GenreFacetType>
+</rdf:RDF>
