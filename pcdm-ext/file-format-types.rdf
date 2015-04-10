@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:udfrs="http://www.udfr.org/onto#">
+  <owl:Ontology rdf:about="http://pcdm.org/file-format-types#">
+    <rdfs:comment xml:lang="en">PCDM File Format Genre ontology.</rdfs:comment>
+    <rdfs:label xml:lang="en">PCDM File Format Genres</rdfs:label>
+  </owl:Ontology>
+  <udfrs:GenreFacetType rdf:ID="Document">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300026031" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Document" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#DocumentGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Archive">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300375748" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Archive" />
+    <skos:closeMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Aggregate" />
+    <skos:closeMatch rdf:resource="http://www.udfr.org/onto#AggregateGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Database">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300028543" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Database" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#DatabaseGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Dataset">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Dataset" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#DatasetGenre" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Dat" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/Dataset" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Software">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Software" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300028566" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/Software" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Email">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300149026" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Email" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#EmailGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Executable">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Software" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Executable" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#ExecutableGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="FileHash">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileHash" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Font">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Font" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="GIS">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Dataset" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/GIS" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Model">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#ModelGenre" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300047753" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Website">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Website" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300265431" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Unknown">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#Unknown" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Unk" />
+  </udfrs:GenreFacetType>
+  <!-- All text genres -->
+  <udfrs:GenreFacetType rdf:ID="Text">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#TextDocument" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#TextGenre" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/Text" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Txt" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="PageDescription">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PaginatedTextDocument" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/PageDescription" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#PageDescriptionGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="UnstructuredText">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <skos:closeMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PlainTextDocument" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/UnstructuredText" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="StructuredText">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Text" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/StructuredText" />
+  </udfrs:GenreFacetType>
+  <!-- Structured text genres -->
+  <udfrs:GenreFacetType rdf:ID="SourceCode">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="StructuredText" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#SourceCode" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Markup">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="StructuredText" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/MarkupText" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="HTML">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Markup" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#HTMLDocument" />
+    <skos:exactMatch rdf:resource="http://vocab.getty.edu/aat/300266021" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Presentation">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Presentation" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Presentation" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#PresentationGenre" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Spreadsheet">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Spreadsheet" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Spreadsheet" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#SpreadsheetGenre" />
+  </udfrs:GenreFacetType>
+  <!-- All media genres -->
+  <udfrs:GenreFacetType rdf:ID="MediaList">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#MediaList" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Media">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Document" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Media" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Mul" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Audio">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#SoundGenre" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Audio" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Audio" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Aud" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/Sound" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="Video">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#MovingImageGenre" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/Video" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Video" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Mov" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/MovingImage" />
+  </udfrs:GenreFacetType>
+  <!-- Image genres -->
+  <udfrs:GenreFacetType rdf:ID="Image">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Media" />
+    <skos:exactMatch rdf:resource="http://www.udfr.org/onto#StillImageGenre" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Image" />
+    <skos:exactMatch rdf:resource="http://id.loc.gov/vocabulary/resourceTypes/Img" />
+    <skos:exactMatch rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="RasterImage">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Image" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RasterImage" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/RasterImage" />
+  </udfrs:GenreFacetType>
+  <udfrs:GenreFacetType rdf:ID="VectorImage">
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
+    <rdfs:subClassOf rdf:resource="Image" />
+    <skos:exactMatch rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#VectorImage" />
+    <skos:exactMatch rdf:resource="http://reference.data.gov.uk/technical-registry/VectorImage" />
+  </udfrs:GenreFacetType>
+</rdf:RDF>
