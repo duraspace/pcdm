@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <rdf:Description rdf:about="http://pcdm.org/use#">
+    <dcterms:title xml:lang="en">Portland Common Data Model: Use Extension</dcterms:title>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-12</dcterms:modified>
+    <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
+    <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add subclasses of PCDM File for the
+        different roles files have in relation to the Object they are attached to.</rdfs:comment>
+    <owl:versionInfo>2015/05/12</owl:versionInfo>
+  </rdf:Description>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#ExtractedText">
+    <rdfs:label xml:lang="en">extracted text</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for fulltext indexing,
+        such as a plaintext version of a document, or OCR text.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#IntermediateFile">
+    <rdfs:label xml:lang="en">intermediate file</rdfs:label>
+    <rdfs:comment xml:lang="en">High quality representation of the Object, appropriate for generating
+        derivatives or other additional processing.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#OriginalFile">
+    <rdfs:label xml:lang="en">original file</rdfs:label>
+    <rdfs:comment xml:lang="en">The original creation format of a file.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationMasterFile">
+    <rdfs:label xml:lang="en">preservation master file</rdfs:label>
+    <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
+        preservation.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#ServiceFile">
+    <rdfs:label xml:lang="en">service file</rdfs:label>
+    <rdfs:comment xml:lang="en">A medium quality representation of the Object appropriate for serving to
+        users.  Similar to a FADGI "derivative file" but can also be used for born-digital content,
+        and is not necessarily derived from another file.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#ThumbnailImage">
+    <rdfs:label xml:lang="en">thumbnail image</rdfs:label>
+    <rdfs:comment xml:lang="en">A low resolution image representation of the Object appropriate for using
+        as an icon.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#Transcript">
+    <rdfs:label xml:lang="en">transcript</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for presenting to users,
+        such as subtitles or transcript of a video.  Can be used as a substitute or complement to other
+        files for accessibility purposes.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#ExtractedText"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+</rdf:RDF>
