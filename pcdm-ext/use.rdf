@@ -31,6 +31,13 @@
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdf:Property>
 
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#extractedText">
+    <rdfs:label xml:lang="en">extractedText</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for fulltext indexing,
+        such as a plaintext version of a document, or OCR text.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
   <owl:NamedIndividual rdf:about="http://pcdm.org/use#original">
     <rdfs:label xml:lang="en">original</rdfs:label>
     <rdfs:comment xml:lang="en">The original creation format of a file.</rdfs:comment>
@@ -51,17 +58,17 @@
     <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
   </owl:NamedIndividual>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#text">
-    <rdfs:label xml:lang="en">text</rdfs:label>
-    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for fulltext indexing,
-        such as a plaintext version of a document, or a transcript of a video.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
-
   <owl:NamedIndividual rdf:about="http://pcdm.org/use#thumbnail">
     <rdfs:label xml:lang="en">thumbnail</rdfs:label>
     <rdfs:comment xml:lang="en">A low resolution image representation of the Object appropriate for using
         as an icon.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#transcript">
+    <rdfs:label xml:lang="en">transcript</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for presenting to users,
+        such as subtitles or transcript of a video.</rdfs:comment>
     <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
   </owl:NamedIndividual>
 
