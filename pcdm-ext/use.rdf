@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <rdf:Description rdf:about="http://pcdm.org/use#">
+    <dcterms:title xml:lang="en">Portland Common Data Model: Use Extension</dcterms:title>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-07</dcterms:modified>
+    <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
+    <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add a "use" property and value list, to
+        define the different roles files have in relation to the Object they are attached to.</rdfs:comment>
+    <owl:versionInfo>2015/05/07</owl:versionInfo>
+  </rdf:Description>
+    
+  <rdfs:Class rdf:about="http://pcdm.org/use#Use">
+    <rdfs:label xml:lang="en">Use</rdfs:label>
+    <rdfs:comment xml:lang="en">The role a File has in relation to the Object it is attached
+        to.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#use">
+    <rdfs:label xml:lang="en">use</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a File to a Use representing its role.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#Use"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#extractedText">
+    <rdfs:label xml:lang="en">extractedText</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for fulltext indexing,
+        such as a plaintext version of a document, or OCR text.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#original">
+    <rdfs:label xml:lang="en">original</rdfs:label>
+    <rdfs:comment xml:lang="en">The original creation format of a file.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#preservation">
+    <rdfs:label xml:lang="en">preservation</rdfs:label>
+    <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
+        preservation.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#service">
+    <rdfs:label xml:lang="en">service</rdfs:label>
+    <rdfs:comment xml:lang="en">A medium quality representation of the Object appropriate for serving to
+        users.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#thumbnail">
+    <rdfs:label xml:lang="en">thumbnail</rdfs:label>
+    <rdfs:comment xml:lang="en">A low resolution image representation of the Object appropriate for using
+        as an icon.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="http://pcdm.org/use#transcript">
+    <rdfs:label xml:lang="en">transcript</rdfs:label>
+    <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for presenting to users,
+        such as subtitles or transcript of a video.</rdfs:comment>
+    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
+  </owl:NamedIndividual>
+
+</rdf:RDF>
