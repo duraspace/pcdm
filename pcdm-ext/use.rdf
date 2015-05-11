@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<rdf:RDF 
+<rdf:RDF
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -7,69 +7,114 @@
 
   <rdf:Description rdf:about="http://pcdm.org/use#">
     <dcterms:title xml:lang="en">Portland Common Data Model: Use Extension</dcterms:title>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-07</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-11</dcterms:modified>
     <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
-    <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add a "use" property and value list, to
-        define the different roles files have in relation to the Object they are attached to.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add subclasses of PCDM File for the
+        different roles files have in relation to the Object they are attached to.</rdfs:comment>
     <owl:versionInfo>2015/05/07</owl:versionInfo>
   </rdf:Description>
-    
-  <rdfs:Class rdf:about="http://pcdm.org/use#Use">
-    <rdfs:label xml:lang="en">Use</rdfs:label>
-    <rdfs:comment xml:lang="en">The role a File has in relation to the Object it is attached
-        to.</rdfs:comment>
-    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
-  </rdfs:Class>
 
-  <rdf:Property rdf:about="http://pcdm.org/use#use">
-    <rdfs:label xml:lang="en">use</rdfs:label>
-    <rdfs:comment xml:lang="en">Links a File to a Use representing its role.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://pcdm.org/models#File"/>
-    <rdfs:range rdf:resource="http://pcdm.org/use#Use"/>
-    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
-  </rdf:Property>
-
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#extractedText">
+  <rdfs:Class rdf:about="http://pcdm.org/use#ExtractedText">
     <rdfs:label xml:lang="en">extractedText</rdfs:label>
     <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for fulltext indexing,
         such as a plaintext version of a document, or OCR text.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#original">
+  <rdfs:Class rdf:about="http://pcdm.org/use#OriginalFile">
     <rdfs:label xml:lang="en">original</rdfs:label>
     <rdfs:comment xml:lang="en">The original creation format of a file.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#preservation">
+  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationFile">
     <rdfs:label xml:lang="en">preservation</rdfs:label>
     <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
         preservation.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#service">
+  <rdfs:Class rdf:about="http://pcdm.org/use#ServiceFile">
     <rdfs:label xml:lang="en">service</rdfs:label>
     <rdfs:comment xml:lang="en">A medium quality representation of the Object appropriate for serving to
         users.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#thumbnail">
+  <rdfs:Class rdf:about="http://pcdm.org/use#Thumbnail">
     <rdfs:label xml:lang="en">thumbnail</rdfs:label>
     <rdfs:comment xml:lang="en">A low resolution image representation of the Object appropriate for using
         as an icon.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
 
-  <owl:NamedIndividual rdf:about="http://pcdm.org/use#transcript">
+  <rdfs:Class rdf:about="http://pcdm.org/use#Transcript">
     <rdfs:label xml:lang="en">transcript</rdfs:label>
     <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for presenting to users,
         such as subtitles or transcript of a video.</rdfs:comment>
-    <rdf:type rdf:resource="http://pcdm.org/use#Use"/>
-  </owl:NamedIndividual>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasExtractedText">
+    <rdfs:label xml:lang="en">has extracted text</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to an extracted text file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#ExtractedText"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasOriginalFile">
+    <rdfs:label xml:lang="en">has original file.</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to an original file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#OriginalFile"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasPreservationFile">
+    <rdfs:label xml:lang="en">has preservation file</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to a preservation file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#PreservationFile"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasServiceFile">
+    <rdfs:label xml:lang="en">has service file</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to a service file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#ServiceFile"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasThumbnail">
+    <rdfs:label xml:lang="en">has thumbnail</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to a thumbnail file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#Thumbnail"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://pcdm.org/use#hasTranscript">
+    <rdfs:label xml:lang="en">has transcript</rdfs:label>
+    <rdfs:comment xml:lang="en">Links to a transcript file.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:range rdf:resource="http://pcdm.org/use#Transcript"/>
+    <rdfs:subPropertyOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdf:Property>
 
 </rdf:RDF>
