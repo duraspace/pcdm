@@ -24,6 +24,14 @@
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 
+  <rdfs:Class rdf:about="http://pcdm.org/use#IntermediateFile">
+    <rdfs:label xml:lang="en">intermediate file</rdfs:label>
+    <rdfs:comment xml:lang="en">High quality representation of the Object, appropriate for generating
+        derivatives or other additional processing.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
   <rdfs:Class rdf:about="http://pcdm.org/use#OriginalFile">
     <rdfs:label xml:lang="en">original file</rdfs:label>
     <rdfs:comment xml:lang="en">The original creation format of a file.</rdfs:comment>
