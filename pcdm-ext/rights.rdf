@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+  <rdf:Description rdf:about="http://pcdm.org/rights#">
+    <dcterms:title xml:lang="en">Portland Common Data Model: Rights Extension</dcterms:title>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-03</dcterms:modified>
+    <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
+    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/Rights+Metadata+Subgroup"/>
+    <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add properties for rights
+        overrides.</rdfs:comment>
+    <owl:versionInfo>2015/06/03</owl:versionInfo>
+  </rdf:Description>
+
+    <rdf:Property rdf:about="http://pcdm.org/rights#rightsOverride">
+      <rdfs:label xml:lang="en">rights override</rdfs:label>
+      <rdfs:comment xml:lang="en">Links to a rights statement that overrides the base rights statement
+          attached to a resource.  This could be an embargo, temporary license, statutory
+          restriction.</rdfs:comment>
+      <rdfs:range rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
+      <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/accessRights"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/rights#"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/rights#rightsOverrideExpiration">
+      <rdfs:label xml:lang="en">rights override expiration</rdfs:label>
+      <rdfs:comment xml:lang="en">Date when a rights override expires.  After this date, the base rights
+          rights statement will be in effect.  Recommended best practice is to use an encoding scheme,
+          such as the W3CDTF profile of ISO 8601.</rdfs:comment>
+      <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+      <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/rights#"/>
+    </rdf:Property>
+
+</rdf:RDF>
