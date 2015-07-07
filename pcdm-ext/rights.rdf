@@ -9,7 +9,7 @@
     <dcterms:title xml:lang="en">Portland Common Data Model: Rights Extension</dcterms:title>
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-06-03</dcterms:modified>
     <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
-    <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/FF/Portland+Common+Data+Model"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/Rights+Metadata+Subgroup"/>
     <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add properties for rights
         overrides.</rdfs:comment>
