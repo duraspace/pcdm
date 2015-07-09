@@ -1,0 +1,53 @@
+{
+	"@context": {
+		"pcdm": "http://pcdm.org/models#",
+		"ore": "http://www.openarchives.org/ore/terms/",
+		"iana": "http://www.iana.org/assignments/relation/",
+		"ldp": "http://www.w3.org/ns/ldp#",
+		"dc": "http://purl.org/dc/elements/1.1/",
+		"dcterms": "http://purl.org/dc/terms/",
+		"foaf": "http://xmlns.com/foaf/0.1/",
+		"acl": "http://www.w3.org/ns/auth/acl#",
+		"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+		"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+		"gen": "http://www.w3.org/2006/gen/ont#",
+		"ebucore": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
+		"premis": "http://www.loc.gov/premis/rdf/v1#",
+		"sweetjpl": "http://sweet.jpl.nasa.gov/2.2/reprDataFormat.owl#",
+
+		"hasMember": {"@id": "pcdm:hasMember", "@type":"@id"},
+		"hasRelatedObject": {"@id": "pcdm:hasRelatedObject","@type":"@id"},
+		"hasFile": {"@id": "pcdm:hasFile","@type":"@id"},
+		"hasRelatedFile": {"@id": "pcdm:hasRelatedFile","@type":"@id"},			
+
+		"proxyFor": {"@id": "ore:proxyFor", "@type": "@id"},
+		"proxyIn": {"@id": "ore:proxyIn", "@type": "@id"},		
+		"first": {"@id": "iana:first", "@type": "@id"},
+		"last": {"@id": "iana:last", "@type": "@id"},
+		"next": {"@id": "iana:next", "@type": "@id"},
+		"prev": {"@id": "iana:prev", "@type": "@id"},
+
+		"extent": {"@id": "dcterms:extent"},
+		"format": {"@id": "dc:format"},
+		"created": {"@id": "dcterms:created"},
+		"modified": {"@id": "dcterms:modified"},
+		"label": {"@id": "rdfs:label"},
+		"agent": {"@id": "acl:agent"},
+		"agentClass": {"@id": "acl:agentClass"},
+		"mode": {"@id": "acl:mode"},
+		"accessTo": {"@id": "acl:accessTo"},
+		"accessToClass": {"@id": "acl:accessToClass"},
+
+		"contains": {"@id": "ldp:contains", "@type": "@id"},
+		"membershipResource": {"@id": "ldp:membershipResource", "@type": "@id"},
+		"hasMemberRelation": {"@id": "ldp:hasMemberRelation", "@type": "@id"},
+		"isMemberOfRelation": {"@id": "ldp:isMemberOfRelation", "@type": "@id"},
+		"insertedContentRelation": {"@id": "ldp:insertedContentRelation", "@type": "@id"},
+
+		"Object": {"@id": "pcdm:Object"},
+		"Collection": {"@id": "pcdm:Collection"},
+		"File": {"@id": "pcdm:File"},
+		"Proxy": {"@id": "ore:Proxy"}
+
+	}
+}

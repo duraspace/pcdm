@@ -1,0 +1,25 @@
+
+{
+  "@context": "http://pcdm.org/context-pcdm.json",
+  "@id": "/postcard",
+  "@type": "Object",
+  "label": "Postcard",
+  "hasMember": [
+    {"@id": "/side1", "@type": "Object", "hasFile": "/side1.jpg"},
+    {"@id": "/side2", "@type": "Object", "hasFile": "/side2.jpg"}
+    ],
+  "first": {
+    "@id": "/side1-proxy",
+    "@type":"Proxy",
+    "proxyFor": "/side1",
+    "proxyIn": "/postcard",
+    "next": "/side2-proxy"
+  },
+  "last": {
+    "@id": "/side2-proxy",
+    "@type":"Proxy",
+    "proxyFor": "/side2",
+    "proxyIn": "/postcard",
+    "prev": "/side1-proxy"    
+  }
+}
