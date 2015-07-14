@@ -1,6 +1,6 @@
 
 {
-  "@context": "http://pcdm.org/context-pcdm.json",
+  "@context": "http://pcdm.org/context.json",
   "@id": "/postcard",
   "@type": "Object",
   "label": "Postcard",

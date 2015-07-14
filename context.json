@@ -15,10 +15,15 @@
 		"premis": "http://www.loc.gov/premis/rdf/v1#",
 		"sweetjpl": "http://sweet.jpl.nasa.gov/2.2/reprDataFormat.owl#",
 
-		"hasMember": {"@id": "pcdm:hasMember", "@type":"@id"},
-		"hasRelatedObject": {"@id": "pcdm:hasRelatedObject","@type":"@id"},
-		"hasFile": {"@id": "pcdm:hasFile","@type":"@id"},
-		"hasRelatedFile": {"@id": "pcdm:hasRelatedFile","@type":"@id"},			
+		"hasMember": {"@id": "pcdm:hasMember", "@type": "@id"},
+		"hasRelatedObject": {"@id": "pcdm:hasRelatedObject","@type": "@id"},
+		"hasFile": {"@id": "pcdm:hasFile","@type": "@id"},
+		"hasRelatedFile": {"@id": "pcdm:hasRelatedFile","@type": "@id"},			
+
+		"memberOf": {"@id": "pcdm:memberOf", "@type": "@id"},
+		"fileOf": {"@id": "pcdm:fileOf", "@type": "@id"},	
+		"relatedObjectOf": {"@id": "pcdm:relatedObjectOf", "@type": "@id"},			
+		"relatedFileOf": {"@id": "pcdm:relatedFileOf", "@type": "@id"},
 
 		"proxyFor": {"@id": "ore:proxyFor", "@type": "@id"},
 		"proxyIn": {"@id": "ore:proxyIn", "@type": "@id"},		
@@ -38,16 +43,19 @@
 		"accessTo": {"@id": "acl:accessTo"},
 		"accessToClass": {"@id": "acl:accessToClass"},
 
+		"Object": {"@id": "pcdm:Object"},
+		"Collection": {"@id": "pcdm:Collection"},
+		"File": {"@id": "pcdm:File"},
+		"Proxy": {"@id": "ore:Proxy"},
+
 		"contains": {"@id": "ldp:contains", "@type": "@id"},
 		"membershipResource": {"@id": "ldp:membershipResource", "@type": "@id"},
 		"hasMemberRelation": {"@id": "ldp:hasMemberRelation", "@type": "@id"},
 		"isMemberOfRelation": {"@id": "ldp:isMemberOfRelation", "@type": "@id"},
 		"insertedContentRelation": {"@id": "ldp:insertedContentRelation", "@type": "@id"},
 
-		"Object": {"@id": "pcdm:Object"},
-		"Collection": {"@id": "pcdm:Collection"},
-		"File": {"@id": "pcdm:File"},
-		"Proxy": {"@id": "ore:Proxy"}
+		"DirectContainer": {"@id": "ldp:DirectContainer"},
+		"IndirectContainer": {"@id": "ldp:IndirectContainer"}
 
 	}
 }
