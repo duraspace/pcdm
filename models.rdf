@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="rdfs2html.xsl"?>
 <rdf:RDF 
     xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:ldp="http://www.w3.org/ns/ldp#"
