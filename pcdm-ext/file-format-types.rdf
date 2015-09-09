@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
@@ -7,6 +8,9 @@
   <owl:Ontology rdf:about="http://pcdm.org/file-format-types#">
     <rdfs:comment xml:lang="en">PCDM File Format Genre ontology.</rdfs:comment>
     <rdfs:label xml:lang="en">PCDM File Format Genres</rdfs:label>
+    <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
+    <owl:versionInfo>2015/09/09</owl:versionInfo>
   </owl:Ontology>
   <udfrs:GenreFacetType rdf:ID="Document">
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/file-format-types#"/>
