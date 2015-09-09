@@ -3,7 +3,16 @@
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:dcterms="http://purl.org/dc/terms/">
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:udfrs="http://www.udfr.org/onto#"
+    xmlns:nfo="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
+    xmlns:dcmitype="http://purl.org/dc/dcmitype/"
+    xmlns:aat="http://vocab.getty.edu/aat/"
+    xmlns:pronom="http://reference.data.gov.uk/technical-registry/"
+    xmlns:marcres="http://id.loc.gov/vocabulary/resourceTypes/"
+    xmlns:pcdmfmt="http://pcdm.org/file-format-types#">
+
   <xsl:output method="html"/>
 
   <xsl:variable name="about" select="/rdf:RDF/rdf:Description[1]/@rdf:about"/>
@@ -124,6 +133,10 @@
           <xsl:if test="/rdf:RDF/rdf:Property">
             <p><a href="#Properties">Properties</a></p>
           </xsl:if>
+
+          <xsl:if test="/rdf:RDF/*[not(local-name() = 'Class' or local-name() = 'Property' or @rdf:about = /rdf:RDF/rdf:Description[1]/@rdf:about)]">
+            <p><a href="#Individuals">Individuals</a></p>
+          </xsl:if>
         </div>
 
         <article>
@@ -142,6 +155,15 @@
             <a name="Properties"></a>
             <h3>Properties</h3>
             <xsl:for-each select="/rdf:RDF/rdf:Property">
+              <xsl:sort select="@rdf:about"/>
+              <xsl:call-template name="description"/>
+            </xsl:for-each>
+          </xsl:if>
+
+          <xsl:if test="/rdf:RDF/*[not(local-name() = 'Class' or local-name() = 'Property' or @rdf:about = /rdf:RDF/rdf:Description[1]/@rdf:about)]">
+            <a name="Individuals"></a>
+            <h3>Individuals</h3>
+            <xsl:for-each select="/rdf:RDF/*[not(local-name() = 'Class' or local-name() = 'Property' or @rdf:about = /rdf:RDF/rdf:Description[1]/@rdf:about)]">
               <xsl:sort select="@rdf:about"/>
               <xsl:call-template name="description"/>
             </xsl:for-each>
@@ -256,63 +278,80 @@
             </td>
           </tr>
         </xsl:if>
+        <xsl:if test="skos:broader">
+          <tr class="property">
+            <td>Broader</td>
+            <td>
+              <xsl:for-each select="skos:broader">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="skos:exactMatch">
+          <tr class="property">
+            <td>Exact Match</td>
+            <td>
+              <xsl:for-each select="skos:exactMatch">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="skos:closeMatch">
+          <tr class="property">
+            <td>Close Match</td>
+            <td>
+              <xsl:for-each select="skos:closeMatch">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+
       </table>
     </div>
   </xsl:template>
 
   <xsl:template name="link">
+    <xsl:variable name="ns" select="/rdf:RDF/rdf:Description/@rdf:about"/>
     <xsl:variable name="id">
       <xsl:choose>
-        <xsl:when test="@rdf:about and contains(@rdf:about,$about)">
-          <xsl:value-of select="substring-after(@rdf:about,$about)"/>
+        <xsl:when test="@rdf:about">
+          <xsl:value-of select="@rdf:about"/>
         </xsl:when>
-        <xsl:when test="@rdf:resource and contains(@rdf:resource,$about)">
-          <xsl:value-of select="substring-after(@rdf:resource,$about)"/>
+        <xsl:when test="@rdf:resource">
+          <xsl:value-of select="@rdf:resource"/>
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <xsl:choose>
-      <xsl:when test="$id != ''">
-        <a href="#{$id}">
-          <xsl:choose>
-            <xsl:when test="contains($about,$pcdmns)">
-              <xsl:text>pcdm:</xsl:text>
-              <xsl:value-of select="$id"/>
-            </xsl:when>
-            <xsl:when test="contains($about,$pcdmrightsns)">
-              <xsl:text>pcdmrights:</xsl:text>
-              <xsl:value-of select="$id"/>
-            </xsl:when>
-            <xsl:when test="contains($about, $pcdmusens)">
-              <xsl:text>pcdmuse:</xsl:text>
-              <xsl:value-of select="$id"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="$about"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </a>
-      </xsl:when>
-      <xsl:when test="contains(@rdf:resource, $rdfsns)">
-          <xsl:text>rdfs:</xsl:text>
-          <xsl:value-of select="substring-after(@rdf:resource, $rdfsns)"/>
-      </xsl:when>
-      <xsl:when test="contains(@rdf:resource, $dctermsns)">
-          <xsl:text>dcterms:</xsl:text>
-          <xsl:value-of select="substring-after(@rdf:resource, $dctermsns)"/>
-      </xsl:when>
-      <xsl:when test="contains(@rdf:resource, $ldpns)">
-          <xsl:text>ldp:</xsl:text>
-          <xsl:value-of select="substring-after(@rdf:resource, $ldpns)"/>
-      </xsl:when>
-      <xsl:when test="contains(@rdf:resource, $orens)">
-          <xsl:text>ore:</xsl:text>
-          <xsl:value-of select="substring-after(@rdf:resource, $orens)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="@rdf:resource"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:variable name="name">
+      <xsl:choose>
+        <xsl:when test="/*/namespace::*[starts-with($id,.)]">
+          <xsl:for-each select="/*/namespace::*">
+            <xsl:if test="starts-with($id,.)">
+              <xsl:value-of select="name()"/>:<xsl:value-of select="substring-after($id,.)"/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise><xsl:value-of select="$id"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="url">
+      <xsl:choose>
+        <xsl:when test="starts-with($id,$ns)">
+          <xsl:if test="substring($ns, string-length($ns)) = '#'">#</xsl:if>
+          <xsl:value-of select="substring-after($id,/rdf:RDF/rdf:Description/@rdf:about)"/>
+        </xsl:when>
+        <xsl:otherwise><xsl:value-of select="$id"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:if test="$url != ''">
+      <a href="{$url}">
+        <xsl:value-of select="$name"/>
+      </a>
+    </xsl:if>
     <xsl:text> </xsl:text>
   </xsl:template>
 
