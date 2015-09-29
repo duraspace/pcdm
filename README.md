@@ -6,6 +6,8 @@ Description: This model is intended to underlie a wide array of repository and D
 
 For more information see: https://github.com/duraspace/pcdm/wiki
 
+For email discussion see: https://groups.google.com/d/forum/pcdm
+
 To generate HTML versions of the ontologies:
 
 ```sh
