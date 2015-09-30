@@ -12,11 +12,12 @@
 
     <rdf:Description rdf:about="http://pcdm.org/models#">
       <dcterms:title xml:lang="en">Portland Common Data Model</dcterms:title>
-      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-03-16</dcterms:modified>
+      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-09-25</dcterms:modified>
       <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
       <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
       <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
-      <owl:versionInfo>2015/03/16</owl:versionInfo>
+      <owl:versionInfo>2015/09/25</owl:versionInfo>
+      <owl:priorVersion rdf:resource="http://pcdm.org/2015/03/16/models"/>
     </rdf:Description>
     
     <rdfs:Class rdf:about="http://pcdm.org/models#AdministrativeSet">
@@ -101,25 +102,6 @@
       <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
       <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
       <owl:inverseOf rdf:resource="http://pcdm.org/models#hasMember"/>
-    </rdf:Property>
-
-    <rdf:Property rdf:about="http://pcdm.org/models#hasRelatedFile">
-      <rdfs:label xml:lang="en">has related file</rdfs:label>
-      <rdfs:comment xml:lang="en">Links to a File which is related to this Object but doesn't directly describe or represent it, such as technical metadata about other files.</rdfs:comment>
-      <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
-      <rdfs:range rdf:resource="http://pcdm.org/models#File"/>
-      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
-      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
-    </rdf:Property>
-    
-    <rdf:Property rdf:about="http://pcdm.org/models#relatedFileOf">
-      <rdfs:label xml:lang="en">is related file of</rdfs:label>
-      <rdfs:comment xml:lang="en">Links from a related File to its containing Object.</rdfs:comment>
-      <rdfs:range rdf:resource="http://pcdm.org/models#Object"/>
-      <rdfs:domain rdf:resource="http://pcdm.org/models#File"/>
-      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
-      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
-      <owl:inverseOf rdf:resource="http://pcdm.org/models#hasRelatedFile"/>
     </rdf:Property>
 
     <rdf:Property rdf:about="http://pcdm.org/models#hasRelatedObject">
