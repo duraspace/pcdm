@@ -12,11 +12,11 @@
 
     <rdf:Description rdf:about="http://pcdm.org/models#">
       <dcterms:title xml:lang="en">Portland Common Data Model</dcterms:title>
-      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-09-25</dcterms:modified>
+      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-09-28</dcterms:modified>
       <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
       <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
       <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
-      <owl:versionInfo>2015/09/25</owl:versionInfo>
+      <owl:versionInfo>2015/09/28</owl:versionInfo>
       <owl:priorVersion rdf:resource="http://pcdm.org/2015/03/16/models"/>
     </rdf:Description>
     
@@ -55,6 +55,17 @@
       <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
     </rdfs:Class>
    
+    <rdfs:Class rdf:about="http://pcdm.org/models#AlternateOrder">
+      <rdfs:label xml:lang="en">Alternate Order</rdfs:label>
+      <rdfs:comment xml:lang="en">
+        An AlternateOrder is an alternate ordering of its parent's members.  It should only order the
+        parent's members, and otherwise has all of the features of ordering (some members may be
+        omitted from the order, members may appear more than once in the order, etc.).
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdfs:Class>
+
     <rdfs:Class rdf:about="http://pcdm.org/models#File">
       <rdfs:label xml:lang="en">File</rdfs:label>
       <rdfs:comment xml:lang="en">
