@@ -2,161 +2,318 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:dcterms="http://purl.org/dc/terms/"
-    xmlns:ldp="http://www.w3.org/ns/ldp#"
-    xmlns:ore="http://www.openarchives.org/ore/terms/"
-    xmlns:pcdm="http://pcdm.org/models">
+    xmlns:dcterms="http://purl.org/dc/terms/">
   <xsl:output method="html"/>
+
   <xsl:variable name="about" select="/rdf:RDF/rdf:Description[1]/@rdf:about"/>
   <xsl:variable name="title" select="/rdf:RDF/rdf:Description[1]/dcterms:title"/>
   <xsl:variable name="comment" select="/rdf:RDF/rdf:Description[1]/rdfs:comment"/>
   <xsl:variable name="modified" select="/rdf:RDF/rdf:Description[1]/dcterms:modified"/>
   <xsl:variable name="publisher" select="/rdf:RDF/rdf:Description[1]/dcterms:publisher/@rdf:resource"/>
   <xsl:variable name="seeAlso" select="/rdf:RDF/rdf:Description[1]/rdfs:seeAlso/@rdf:resource"/>
-  <xsl:variable name="versionInfo" select="/rdf:RDF/rdf:Description/owl:versionInfo"/>
+  <xsl:variable name="versionInfo" select="/rdf:RDF/rdf:Description[1]/owl:versionInfo"/>
+  <xsl:variable name="priorVersion" select="/rdf:RDF/rdf:Description[1]/owl:priorVersion/@rdf:resource"/>
 
+  <!-- namespaces -->
+  <xsl:variable name="orens" select="'http://www.openarchives.org/ore/terms/'"/>
+  <xsl:variable name="ldpns" select="'http://www.w3.org/ns/ldp#'"/>
+  <xsl:variable name="rdfsns" select="'http://www.w3.org/2000/01/rdf-schema#'"/>
+  <xsl:variable name="dctermsns" select="'http://purl.org/dc/terms/'"/>
+  <xsl:variable name="pcdmns" select="'http://pcdm.org/models#'"/>
+  <xsl:variable name="pcdmusens" select="'http://pcdm.org/use#'"/>
+  <xsl:variable name="pcdmrightsns" select="'http://pcdm.org/rights#'"/>
 
-  <xsl:template match="/">
+  <xsl:template match="/rdf:RDF">
     <html>
       <head>
         <title><xsl:value-of select="$title"/></title>
         <style>
+          body { width: 80%; margin: 0 auto; font-family: sans-serif; background: #F6F6F6;}
+          header { text-align: center; margin-top: 10px; }
+          header table { width: 70%; margin: 0 auto; }
+          h1 { font-size: 2em; }
+          h2 { font-size: 1.7em; }
+          h3 { font-size: 1.4em; padding-top: 20px; }
           h4 { margin-bottom: 0.25em; }
-          body { font-family: sans-serif; }
-          .about { font-family: monospace; margin-left: 1em; }
-          .label { margin-left: 1em; font-style:italic; }
-          .comment { margin-left: 1em; }
-          .property { margin-left: 1em; }
-          .modified { margin-left: 1em; }
-          .published { margin-left: 1em; }
-          .seealso { margin-left: 1em; }
-          .version { margin-left: 1em; }
+          hr { margin: 30px 0; }
+          table { width: 100%; margin: 25px 0; border-collapse: collapse; }
+          tr { border: 1px solid #ccc; }
+          th { background-color: #ddd; padding: 5px; font-size: 120%; text-align:center; font-weight: bold; }
+          td { vertical-align: top; padding: 5px; border: 1px solid #ccc; }
+          td:first-child { width: 150px; font-weight: bold; white-space: nowrap; }
+          tr.about td:nth-child(2) { font-size: 120%; font-family: monospace; }
         </style>
       </head>
       <body>
-        <h1><xsl:value-of select="$title"/></h1>
-        <div class="about"><xsl:value-of select="$about"/></div>
-        <div class="comment"><xsl:value-of select="$comment"/></div>
-        <div class="modified">Modified: <xsl:value-of select="$modified"/></div>
-        <div class="published">Published by: <a href="{$publisher}"><xsl:value-of select="$publisher"/></a></div>
-        <xsl:if test="not($versionInfo = '')">
-          <div class="version">Version Info: <xsl:value-of select="$versionInfo" /></div>
-        </xsl:if>
-        <xsl:if test="$seeAlso != ''">
-          <div class="seealso">See Also: <a href="{$seeAlso}"><xsl:value-of select="$seeAlso"/></a></div>
-        </xsl:if>
+        <header>
+          <img src="assets/duraspace_logo.png"/>
+          <h1><xsl:value-of select="$title"/></h1>
+            <table>
+              <tr class="about">
+                <td>Namespace</td>
+                <td><xsl:value-of select="$about"/></td>
+              </tr>
+              <xsl:if test="not($comment = '')">
+                <tr class="comment">
+                  <td>Description</td>
+                  <td><xsl:value-of select="$comment"/></td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="not($versionInfo = '')">
+                <tr class="version">
+                  <td>Version</td>
+                  <td><xsl:value-of select="$versionInfo"/></td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="not($modified = '')">
+                <tr>
+                  <td>Last Modified</td>
+                  <td><xsl:value-of select="$modified"/></td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="not($priorVersion = '')">
+                <tr class="version">
+                  <td>Prior version</td>
+                  <td>
+                    <a>
+                      <xsl:attribute name="href"><xsl:value-of select="$priorVersion"/></xsl:attribute>
+                      <xsl:value-of select="$priorVersion"/>
+                    </a>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="$publisher != ''">
+                <tr>
+                  <td>Published by</td>
+                  <td>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="$publisher"/>
+                      </xsl:attribute>
+                      <xsl:value-of select="$publisher"/>
+                    </a>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="$seeAlso != ''">
+                <tr>
+                  <td>See Also</td>
+                  <td>
+                    <a>
+                      <xsl:attribute name="href">
+                        <xsl:value-of select="$seeAlso"/>
+                      </xsl:attribute>
+                      <xsl:value-of select="$seeAlso"/>
+                    </a>
+                  </td>
+                </tr>
+              </xsl:if>
+            </table>
+        </header>
 
         <!-- table of contents -->
         <div class="table-of-contents">
-            <h2>Table of Contents</h2>
-            <xsl:for-each select="/rdf:RDF/rdfs:Class">
-              <xsl:sort select="@rdf:about"/>
-              <xsl:if test="position() = 1"><h3>Classes</h3></xsl:if>
-              <xsl:call-template name="toc-entry"/>
-            </xsl:for-each>
-            <xsl:for-each select="/rdf:RDF/rdf:Property">
-              <xsl:sort select="@rdf:about"/>
-              <xsl:if test="position() = 1"><h3>Properties</h3></xsl:if>
-              <xsl:call-template name="toc-entry"/>
-          </xsl:for-each>
+          <hr/>
+          <h2>Table of Contents</h2>
+
+          <xsl:if test="/rdf:RDF/rdfs:Class">
+            <p><a href="#Classes">Classes</a></p>
+          </xsl:if>
+
+          <xsl:if test="/rdf:RDF/rdf:Property">
+            <p><a href="#Properties">Properties</a></p>
+          </xsl:if>
         </div>
 
-        <!-- class list -->
-        <div class="contents">
-            <h2>Entity Definitions</h2>
+        <article>
+          <hr/>
+          <h2>Entity Definitions</h2>
+          <xsl:if test="/rdf:RDF/rdfs:Class">
+            <a name="Classes"></a>
+            <h3>Classes</h3>
             <xsl:for-each select="/rdf:RDF/rdfs:Class">
               <xsl:sort select="@rdf:about"/>
-              <xsl:if test="position() = 1"><h3>Classes</h3></xsl:if>
-              <xsl:call-template name="main-entry"/>
+              <xsl:call-template name="description"/>
             </xsl:for-each>
+          </xsl:if>
 
-            <!-- properties list -->
+          <xsl:if test="/rdf:RDF/rdf:Property">
+            <a name="Properties"></a>
+            <h3>Properties</h3>
             <xsl:for-each select="/rdf:RDF/rdf:Property">
               <xsl:sort select="@rdf:about"/>
-              <xsl:if test="position() = 1"><h3>Properties</h3></xsl:if>
-              <xsl:call-template name="main-entry"/>
-          </xsl:for-each>
-        </div>
+              <xsl:call-template name="description"/>
+            </xsl:for-each>
+          </xsl:if>
+
+        </article>
+
       </body>
     </html>
   </xsl:template>
-  <xsl:template name="display-uri">
-    <xsl:param name="label"/>
-    <xsl:param name="uri"/>
-    <xsl:variable name="name">
+
+  <xsl:template name="description">
+    <xsl:variable name="id" select="substring-after(@rdf:about,$about)"/>
+    <div id="{$id}">
+      <table>
+        <tr>
+          <xsl:choose>
+            <xsl:when test="contains(@rdf:about,$pcdmns)">
+              <th colspan="2">pcdm:<xsl:value-of select="$id"/></th>
+            </xsl:when>
+            <xsl:when test="contains(@rdf:about,$pcdmrightsns)">
+              <th colspan="2">pcdmrights:<xsl:value-of select="$id"/></th>
+            </xsl:when>
+            <xsl:when test="contains(@rdf:about,$pcdmusens)">
+              <th colspan="2">pcdmuse:<xsl:value-of select="$id"/></th>
+            </xsl:when>
+            <xsl:otherwise>
+              <th colspan="2"><xsl:value-of select="@rdf:about"/></th>
+            </xsl:otherwise>
+          </xsl:choose>
+        </tr>
+        <tr class="about">
+          <td>URI</td>
+          <td><xsl:value-of select="@rdf:about"/></td>
+        </tr>
+
+        <xsl:if test="rdfs:label">
+          <tr class="label">
+            <td>Label</td>
+            <td><xsl:value-of select="rdfs:label"/></td>
+          </tr>
+        </xsl:if>
+        <xsl:for-each select="rdfs:comment">
+          <tr class="comment">
+            <td>Description</td>
+            <td><xsl:value-of select="."/></td>
+          </tr>
+        </xsl:for-each>
+        <tr class="property">
+          <td>Type</td>
+          <td><xsl:value-of select="name()"/></td>
+        </tr>
+        <xsl:if test="rdfs:subClassOf">
+          <tr class="property">
+            <td>Subclass Of</td>
+            <td>
+              <xsl:for-each select="rdfs:subClassOf">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="//*[contains(rdfs:domain/@rdf:resource,$id)]|//*[contains(rdfs:range/@rdf:resource,$id)]">
+          <tr class="property">
+            <td>Used With</td>
+            <td>
+              <xsl:for-each select="//*[contains(rdfs:domain/@rdf:resource,$id)]|//*[contains(rdfs:range/@rdf:resource,$id)]">
+                <xsl:sort select="@rdf:about"/>
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="//*[rdf:type/@rdf:resource=concat($about,$id)]">
+          <tr class="property">
+            <td>Instances</td>
+            <td>
+              <xsl:for-each select="//*[rdf:type/@rdf:resource=concat($about,$id)]">
+                <xsl:sort select="@rdf:about"/>
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="rdf:type">
+          <tr class="property">
+            <td>rdf:type</td>
+            <td>
+              <xsl:for-each select="rdf:type">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="rdfs:domain">
+          <tr class="property">
+            <td>Domain</td>
+            <td>
+              <xsl:for-each select="rdfs:domain">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+        <xsl:if test="rdfs:range">
+          <tr class="property">
+            <td>Range</td>
+            <td>
+              <xsl:for-each select="rdfs:range">
+                <xsl:call-template name="link"/>
+              </xsl:for-each>
+            </td>
+          </tr>
+        </xsl:if>
+      </table>
+    </div>
+  </xsl:template>
+
+  <xsl:template name="link">
+    <xsl:variable name="id">
       <xsl:choose>
-        <xsl:when test="/*/namespace::*[starts-with($uri,.)]">
-          <xsl:for-each select="/*/namespace::*">
-            <xsl:if test="starts-with($uri,.)">
-              <xsl:value-of select="name()"/>:<xsl:value-of select="substring-after($uri,.)"/>
-            </xsl:if>
-          </xsl:for-each>
+        <xsl:when test="@rdf:about and contains(@rdf:about,$about)">
+          <xsl:value-of select="substring-after(@rdf:about,$about)"/>
         </xsl:when>
-        <xsl:otherwise><xsl:value-of select="$uri"/></xsl:otherwise>
+        <xsl:when test="@rdf:resource and contains(@rdf:resource,$about)">
+          <xsl:value-of select="substring-after(@rdf:resource,$about)"/>
+        </xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <xsl:if test="$uri != ''">
-      <li><xsl:value-of select="$label"/><xsl:text>: </xsl:text>
-        <a href="{$uri}"><xsl:value-of select="$name"/></a>
-      </li>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="$id != ''">
+        <a href="#{$id}">
+          <xsl:choose>
+            <xsl:when test="contains($about,$pcdmns)">
+              <xsl:text>pcdm:</xsl:text>
+              <xsl:value-of select="$id"/>
+            </xsl:when>
+            <xsl:when test="contains($about,$pcdmrightsns)">
+              <xsl:text>pcdmrights:</xsl:text>
+              <xsl:value-of select="$id"/>
+            </xsl:when>
+            <xsl:when test="contains($about, $pcdmusens)">
+              <xsl:text>pcdmuse:</xsl:text>
+              <xsl:value-of select="$id"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$about"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+      </xsl:when>
+      <xsl:when test="contains(@rdf:resource, $rdfsns)">
+          <xsl:text>rdfs:</xsl:text>
+          <xsl:value-of select="substring-after(@rdf:resource, $rdfsns)"/>
+      </xsl:when>
+      <xsl:when test="contains(@rdf:resource, $dctermsns)">
+          <xsl:text>dcterms:</xsl:text>
+          <xsl:value-of select="substring-after(@rdf:resource, $dctermsns)"/>
+      </xsl:when>
+      <xsl:when test="contains(@rdf:resource, $ldpns)">
+          <xsl:text>ldp:</xsl:text>
+          <xsl:value-of select="substring-after(@rdf:resource, $ldpns)"/>
+      </xsl:when>
+      <xsl:when test="contains(@rdf:resource, $orens)">
+          <xsl:text>ore:</xsl:text>
+          <xsl:value-of select="substring-after(@rdf:resource, $orens)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="@rdf:resource"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text> </xsl:text>
   </xsl:template>
-  <xsl:template name="toc-entry">
-    <xsl:variable name="id">
-      <xsl:value-of select="substring-after(@rdf:about,$about)"/>
-    </xsl:variable>
-    <xsl:if test="$id != ''">
-      <a href="#{$id}"><xsl:value-of select="$id"/></a>
-      <xsl:text> </xsl:text>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template name="main-entry">
-    <xsl:variable name="id">
-      <xsl:value-of select="substring-after(@rdf:about,$about)"/>
-    </xsl:variable>
-    <xsl:if test="$id != ''">
-      <h4 id="{$id}"><xsl:value-of select="$id"/></h4>
-      <ul>
-        <li>Label: <xsl:value-of select="rdfs:label"/></li>
-        <xsl:if test="rdfs:comment != ''">
-          <li>Comment: <xsl:value-of select="rdfs:comment"/></li>
-        </xsl:if>
-        <xsl:if test="rdfs:subClassOf/@rdf:resource">
-          <xsl:call-template name="display-uri">
-            <xsl:with-param name="label">Subclass of</xsl:with-param>
-            <xsl:with-param name="uri" select="rdfs:subClassOf/@rdf:resource"/>
-          </xsl:call-template>
-        </xsl:if>
-        <xsl:if test="rdfs:subPropertyOf/@rdf:resource">
-          <xsl:call-template name="display-uri">
-            <xsl:with-param name="label">Subproperty of</xsl:with-param>
-            <xsl:with-param name="uri" select="rdfs:subPropertyOf/@rdf:resource"/>
-          </xsl:call-template>
-        </xsl:if>
-        <xsl:if test="rdfs:domain/@rdf:resource">
-          <xsl:call-template name="display-uri">
-            <xsl:with-param name="label">Domain</xsl:with-param>
-            <xsl:with-param name="uri" select="rdfs:domain/@rdf:resource"/>
-          </xsl:call-template>
-        </xsl:if>
-        <xsl:if test="rdfs:range/@rdf:resource">
-          <xsl:call-template name="display-uri">
-            <xsl:with-param name="label">Range</xsl:with-param>
-            <xsl:with-param name="uri" select="rdfs:range/@rdf:resource"/>
-          </xsl:call-template>
-        </xsl:if>
-        <xsl:if test="owl:inverseOf/@rdf:resource">
-          <xsl:call-template name="display-uri">
-            <xsl:with-param name="label">Inverse of</xsl:with-param>
-            <xsl:with-param name="uri" select="owl:inverseOf/@rdf:resource"/>
-          </xsl:call-template>
-        </xsl:if>
-        <xsl:if test="rdfs:isDefinedBy/@rdf:resource">
-          <li>Is defined by: <a href="{rdfs:isDefinedBy/@rdf:resource}"><xsl:value-of select="rdfs:isDefinedBy/@rdf:resource"/></a></li>
-        </xsl:if>
-      </ul>
-    </xsl:if>
-  </xsl:template>
+
 </xsl:stylesheet>
