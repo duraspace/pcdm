@@ -12,12 +12,12 @@
 
     <rdf:Description rdf:about="http://pcdm.org/models#">
       <dcterms:title xml:lang="en">Portland Common Data Model</dcterms:title>
-      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-09-28</dcterms:modified>
+      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-10-14</dcterms:modified>
       <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
       <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
       <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
-      <owl:versionInfo>2015/09/28</owl:versionInfo>
-      <owl:priorVersion rdf:resource="http://pcdm.org/2015/03/16/models"/>
+      <owl:versionInfo>2015/10/14</owl:versionInfo>
+      <owl:priorVersion rdf:resource="http://pcdm.org/2015/09/28/models"/>
     </rdf:Description>
     
     <rdfs:Class rdf:about="http://pcdm.org/models#AdministrativeSet">
@@ -98,7 +98,10 @@
 
     <rdf:Property rdf:about="http://pcdm.org/models#hasMember">
       <rdfs:label xml:lang="en">has member</rdfs:label>
-      <rdfs:comment xml:lang="en">Links to a subsidiary Object or Collection. Typically used to link to component parts, such as a book linking to a page.</rdfs:comment>
+      <rdfs:comment xml:lang="en">Links to a subsidiary Object or Collection. Typically used to link
+          to component parts, such as a book linking to a page.  Note on transitivity: hasMember is
+          not defined as transitive, but applications may treat it as transitive as local needs
+          dictate.</rdfs:comment>
       <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
       <rdfs:range rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
       <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
