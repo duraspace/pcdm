@@ -1,5 +1,7 @@
 {
 	"@context": {
+		"type": "@type",
+		"id" : "@id",
 		"pcdm": "http://pcdm.org/models#",
 		"ore": "http://www.openarchives.org/ore/terms/",
 		"iana": "http://www.iana.org/assignments/relation/",
