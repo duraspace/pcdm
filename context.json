@@ -20,12 +20,10 @@
 		"hasMember": {"@id": "pcdm:hasMember", "@type": "@id"},
 		"hasRelatedObject": {"@id": "pcdm:hasRelatedObject","@type": "@id"},
 		"hasFile": {"@id": "pcdm:hasFile","@type": "@id"},
-		"hasRelatedFile": {"@id": "pcdm:hasRelatedFile","@type": "@id"},			
 
 		"memberOf": {"@id": "pcdm:memberOf", "@type": "@id"},
 		"fileOf": {"@id": "pcdm:fileOf", "@type": "@id"},	
 		"relatedObjectOf": {"@id": "pcdm:relatedObjectOf", "@type": "@id"},			
-		"relatedFileOf": {"@id": "pcdm:relatedFileOf", "@type": "@id"},
 
 		"proxyFor": {"@id": "ore:proxyFor", "@type": "@id"},
 		"proxyIn": {"@id": "ore:proxyIn", "@type": "@id"},		
