@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="rdfs2html.xsl"?>
+<rdf:RDF
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <rdf:Description rdf:about="http://pcdm.org/works#">
+    <dcterms:title xml:lang="en">Portland Common Data Model: Works Extension</dcterms:title>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016-02-16</dcterms:modified>
+    <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
+    <rdfs:seeAlso rdf:resource="http://iiif.io/api/presentation/2.0/"/>
+    <rdfs:comment xml:lang="en">Ontology for a PCDM extension that adds subclasses of pcdm:Object
+      to refine the relationships between a work and its constituent parts.  Also establishes
+      links to the IIIF Presentation API.</rdfs:comment>
+    <owl:versionInfo>2016/02/16</owl:versionInfo>
+  </rdf:Description>
+
+  <rdfs:Class rdf:about="http://pcdm.org/works#Work">
+    <rdfs:label xml:lang="en">Work</rdfs:label>
+    <rdfs:comment xml:lang="en">
+      A work or intellectual entity, such as a book, film, dissertation, etc.
+      Works have member FileSets representing their physical structure (e.g., pages in a book),
+      and related TopRanges representing their logical structure or structures (e.g., sections
+      and chapters in a book).
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/works#FileSet">
+    <rdfs:label xml:lang="en">FileSet</rdfs:label>
+    <rdfs:comment xml:lang="en">
+      A group of related Files, typically a single master File and its derivatives.
+    </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/works#TopRange">
+    <rdfs:label xml:lang="en">TopRange</rdfs:label>
+    <rdfs:comment xml:lang="en">
+      A logical ordering of the component parts of a Work, corresponding to a IIIF Range with
+      the "top" viewing hint.  Has member Ranges that represent the logical structure, such
+      as chapters within a book, scenes in a film, etc.
+    </rdfs:comment>
+    <skos:closeMatch rdf:resource="http://iiif.io/model/shared-canvas/1.0/#Range"/>
+    <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/works#Range">
+    <rdfs:label xml:lang="en">Range</rdfs:label>
+    <rdfs:comment xml:lang="en">
+      A section of a Work, corresponding to a IIIF Range.  Has member FileSets representing the
+      physical parts of the Work are part of the section (e.g., which pages are in a chapter).
+    </rdfs:comment>
+    <skos:closeMatch rdf:resource="http://iiif.io/model/shared-canvas/1.0/#Range"/>
+    <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
+  </rdfs:Class>
+
+</rdf:RDF>
