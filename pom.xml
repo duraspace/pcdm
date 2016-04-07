@@ -38,6 +38,20 @@
               <transformationSet>
                 <dir>.</dir>
                 <includes>
+                  <include>pcdm-ext/file-format-types.rdf</include>
+                </includes>
+                <stylesheet>rdfs2html.xsl</stylesheet>
+                <outputDir>${project.build.directory}/html</outputDir>
+                <fileMappers>
+                  <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                    <pattern>\.rdf$</pattern>
+                    <replacement>/index.html</replacement>
+                  </fileMapper>
+                </fileMappers>
+              </transformationSet>
+              <transformationSet>
+                <dir>.</dir>
+                <includes>
                   <include>pcdm-ext/rights.rdf</include>
                 </includes>
                 <stylesheet>rdfs2html.xsl</stylesheet>
@@ -53,6 +67,20 @@
                 <dir>.</dir>
                 <includes>
                   <include>pcdm-ext/use.rdf</include>
+                </includes>
+                <stylesheet>rdfs2html.xsl</stylesheet>
+                <outputDir>${project.build.directory}/html</outputDir>
+                <fileMappers>
+                  <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.RegExpFileMapper">
+                    <pattern>\.rdf$</pattern>
+                    <replacement>/index.html</replacement>
+                  </fileMapper>
+                </fileMappers>
+              </transformationSet>
+              <transformationSet>
+                <dir>.</dir>
+                <includes>
+                  <include>pcdm-ext/works.rdf</include>
                 </includes>
                 <stylesheet>rdfs2html.xsl</stylesheet>
                 <outputDir>${project.build.directory}/html</outputDir>
