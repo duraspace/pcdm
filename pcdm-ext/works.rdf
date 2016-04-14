@@ -23,8 +23,9 @@
     <rdfs:label xml:lang="en">Work</rdfs:label>
     <rdfs:comment xml:lang="en">
       A work or intellectual entity, such as a book, film, dissertation, etc.
-      Works have member FileSets representing their physical structure (e.g., pages in a book),
-      and related TopRanges representing their logical structure or structures (e.g., sections
+      Works have member Objects representing their physical structure (e.g., pages in a book),
+      FileSets to maintain representations of the entire resource (e.g. a PDF of all the pages),
+      and TopRanges representing their logical structure or structures (e.g., sections
       and chapters in a book).
     </rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
@@ -34,7 +35,7 @@
   <rdfs:Class rdf:about="http://pcdm.org/works#FileSet">
     <rdfs:label xml:lang="en">FileSet</rdfs:label>
     <rdfs:comment xml:lang="en">
-      A group of related Files, typically a single master File and its derivatives.
+      A group of related Files, typically a single master File and any derivatives.
     </rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
