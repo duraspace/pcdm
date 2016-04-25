@@ -16,21 +16,10 @@
       <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
       <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
       <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
-      <owl:versionInfo>2015/10/14</owl:versionInfo>
-      <owl:priorVersion rdf:resource="http://pcdm.org/2015/09/28/models"/>
+      <owl:versionInfo>2016/04/18</owl:versionInfo>
+      <owl:priorVersion rdf:resource="http://pcdm.org/2015/04/18/models"/>
     </rdf:Description>
     
-    <rdfs:Class rdf:about="http://pcdm.org/models#AdministrativeSet">
-      <rdfs:label xml:lang="en">Administrative Set</rdfs:label>
-      <rdfs:comment xml:lang="en">
-        An Administrative Set is a grouping of resources that an administrative unit is ultimately
-        responsible for managing. The set itself helps to manage the items within it. An Object
-        or Collection may be contained by only one AdministrativeSet.
-      </rdfs:comment>
-      <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ldp#Container"/>
-      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
-    </rdfs:Class>
-
     <rdfs:Class rdf:about="http://pcdm.org/models#Collection">
       <rdfs:label xml:lang="en">Collection</rdfs:label>
       <rdfs:comment xml:lang="en">
