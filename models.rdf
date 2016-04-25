@@ -17,7 +17,7 @@
       <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
       <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
       <owl:versionInfo>2016/04/18</owl:versionInfo>
-      <owl:priorVersion rdf:resource="http://pcdm.org/2015/10/14/models"/>
+      <owl:priorVersion rdf:resource="http://pcdm.org/2015/04/18/models"/>
     </rdf:Description>
     
     <rdfs:Class rdf:about="http://pcdm.org/models#Collection">
