@@ -14,7 +14,7 @@
                     "@id":"http://bc.edu/bobhope/file1.jpeg",
                     "@type":"pcdm:File",
                     "yams_tech":"technical metadata",
-                    "pdcm:memberOf":{"http://bc.edu/bobhope/file1"}
+                    "pdcm:memberOf":{"@id": "http://bc.edu/bobhope/file1"}
                 }
             },
             {"@id":"http://bc.edu/bobhope/file2", "@type":"pcdm:Object", "pcdm:hasFile":
@@ -22,7 +22,7 @@
                     "@id":"http://bc.edu/bobhope/file2.jpeg",
                     "@type":"pcdm:File",
                     "yams_tech":"technical metadata",
-                    "pcdm:memberOf":{"http://bc.edu/bobhope/file2"}
+                    "pcdm:memberOf":{"@id":"http://bc.edu/bobhope/file2"}
                 }
             }
         ] 
