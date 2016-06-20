@@ -1,0 +1,29 @@
+{
+    "@context":
+    {
+      "pcdm":"http://pcdm.org/models#",
+      "yams_desc":"http://example.org/yams_desc",
+      "yams_tech":"http://example.org/yams_tech"
+    },
+       "@type":"pcdm:Collection",
+       "@id":"http://bc.edu/bobhope",
+        "yams_desc":"descriptive metadata",
+        "pcdm:hasMember":[
+            {"@id":"http://bc.edu/bobhope/file1", "@type":"pcdm:Object", "pcdm:hasFile":
+                {
+                    "@id":"http://bc.edu/bobhope/file1.jpeg",
+                    "@type":"pcdm:File",
+                    "yams_tech":"technical metadata",
+                    "pdcm:memberOf":{"@id": "http://bc.edu/bobhope/file1"}
+                }
+            },
+            {"@id":"http://bc.edu/bobhope/file2", "@type":"pcdm:Object", "pcdm:hasFile":
+                {
+                    "@id":"http://bc.edu/bobhope/file2.jpeg",
+                    "@type":"pcdm:File",
+                    "yams_tech":"technical metadata",
+                    "pcdm:memberOf":{"@id":"http://bc.edu/bobhope/file2"}
+                }
+            }
+        ] 
+}    
