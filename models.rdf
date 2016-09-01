@@ -71,6 +71,7 @@
       <rdfs:comment xml:lang="en">
         A group of related Files, typically a single master File and any derivatives.
       </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
       <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
     </rdfs:Class>
 
@@ -164,7 +165,7 @@
 
     <rdf:Property rdf:about="http://pcdm.org/models#managedBy">
       <rdfs:label xml:lang="en">manages file</rdfs:label>
-      <rdfs:comment xml:lang="en">Links to the SetFile that manages this File.</rdfs:comment>
+      <rdfs:comment xml:lang="en">Links to the FileSet that manages this File.</rdfs:comment>
       <rdfs:domain rdf:resource="http://pcdm.org/models#File"/>
       <rdfs:range rdf:resource="http://pcdm.org/models#FileSet"/>
       <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
