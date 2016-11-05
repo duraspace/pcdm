@@ -125,5 +125,14 @@
       <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
       <owl:inverseOf rdf:resource="http://pcdm.org/models#hasRelatedObject"/>
     </rdf:Property>
-   
+    
+    <rdf:Property rdf:about="http://pcdm.org/models#hasRelatedObject">
+      <rdfs:label xml:lang="en">has related object</rdfs:label>
+      <rdfs:comment xml:lang="en">Links to an Object which is related to this Object but doesn't directly describe or represent it.</rdfs:comment>
+      <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:domain rdf:resource="http://pcdm.org/models#Collection"/>
+      <rdfs:range rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/relation"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdf:Property>
 </rdf:RDF>
