@@ -14,7 +14,8 @@
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
     <rdfs:comment xml:lang="en">Ontology for a PCDM extension to add subclasses of PCDM File for the
         different roles files have in relation to the Object they are attached to.</rdfs:comment>
-    <owl:versionInfo>2015/05/12</owl:versionInfo>
+    <owl:versionInfo>2021/04/09</owl:versionInfo>
+    <owl:priorVersion rdf:resource="http://pcdm.org/2015/05/12/use"/>
   </rdf:Description>
 
   <rdfs:Class rdf:about="http://pcdm.org/use#ExtractedText">
@@ -40,8 +41,8 @@
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 
-  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationMasterFile">
-    <rdfs:label xml:lang="en">preservation master file</rdfs:label>
+  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationFile">
+    <rdfs:label xml:lang="en">preservation file</rdfs:label>
     <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
         preservation.</rdfs:comment>
     <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
