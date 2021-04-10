@@ -46,6 +46,18 @@
     <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
         preservation.</rdfs:comment>
     <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <dcterms:replaces rdf:resource="http://pcdm.org/use#PreservationMasterFile"/>
+    <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://pcdm.org/use#PreservationMasterFile">
+    <rdfs:label xml:lang="en">preservation master file</rdfs:label>
+    <rdfs:comment xml:lang="en">Best quality representation of the Object appropriate for long-term
+        preservation.</rdfs:comment>
+    <rdfs:comment>Note: This class has been deprecated in favor of PreservationFile.</rdfs:comment>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/models#File"/>
+    <dcterms:isReplacedBy rdf:resource="http://pcdm.org/use#PreservationFile"/>
+    <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 
