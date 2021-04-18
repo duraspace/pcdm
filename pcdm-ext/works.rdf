@@ -16,7 +16,8 @@
     <rdfs:comment xml:lang="en">Ontology for a PCDM extension that adds subclasses of pcdm:Object
       to refine the relationships between a work and its constituent parts.  Also establishes
       links to the IIIF Presentation API.</rdfs:comment>
-    <owl:versionInfo>2016/02/16</owl:versionInfo>
+    <owl:versionInfo>2021/04/09</owl:versionInfo>
+    <owl:priorVersion rdf:resource="http://pcdm.org/2016/02/16/works"/>
   </rdf:Description>
 
   <rdfs:Class rdf:about="http://pcdm.org/works#Work">
@@ -35,7 +36,7 @@
   <rdfs:Class rdf:about="http://pcdm.org/works#FileSet">
     <rdfs:label xml:lang="en">FileSet</rdfs:label>
     <rdfs:comment xml:lang="en">
-      A group of related Files, typically a single master File and any derivatives.
+      A group of related Files, typically a single source File and any derivatives.
     </rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/works#"/>
