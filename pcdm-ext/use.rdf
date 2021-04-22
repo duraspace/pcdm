@@ -8,7 +8,7 @@
 
   <rdf:Description rdf:about="http://pcdm.org/use#">
     <dcterms:title xml:lang="en">Portland Common Data Model: Use Extension</dcterms:title>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2015-05-12</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-04-09</dcterms:modified>
     <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
     <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
     <rdfs:seeAlso rdf:resource="https://wiki.duraspace.org/display/hydra/File+Use+Vocabulary"/>
