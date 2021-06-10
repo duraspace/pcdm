@@ -7,7 +7,7 @@ Description: This model is intended to underlie a wide array of repository and D
 ### Communication
 * Project information see: https://github.com/duraspace/pcdm/wiki
 * Email discussion see: https://groups.google.com/d/forum/pcdm
-* IRC discussion see: #pcdm on irc.freenode.net
+* Slack discussion see: #pcdm on the [Code4lib Slack team](https://code4lib.org/irc#slack)
 
 ### Developer resources
 To generate HTML versions of the ontologies:
