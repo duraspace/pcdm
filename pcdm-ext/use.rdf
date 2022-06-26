@@ -83,7 +83,7 @@
     <rdfs:comment xml:lang="en">A textual representation of the Object appropriate for presenting to users,
         such as subtitles or transcript of a video.  Can be used as a substitute or complement to other
         files for accessibility purposes.</rdfs:comment>
-    <rdf:subClassOf rdf:resource="http://pcdm.org/models#ExtractedText"/>
+    <rdf:subClassOf rdf:resource="http://pcdm.org/use#ExtractedText"/>
     <rdfs:isDefinedBy rdf:resource="http://pcdm.org/use#"/>
   </rdfs:Class>
 
