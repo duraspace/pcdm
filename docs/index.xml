@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="index2html.xsl"?>
+
+<index>
+  <pages title="PCDM Ontologies">
+    <page id="PCDM Models Ontology" url="models"/>
+    <page id="PCDM Use Ontology" url="use"/>
+    <page id="PCDM Rights Ontology" url="rights"/>
+    <page id="PCDM Works Ontology" url="works"/>
+    <page id="PCDM File Formats Ontology" url="file-format-types"/>
+  </pages>
+  <items>
+    <item id="PCDM Wiki" url="https://github.com/duraspace/pcdm/wiki"/>
+  </items>
+</index>
