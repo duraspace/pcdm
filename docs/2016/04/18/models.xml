@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="rdfs2html.xsl"?>
+<rdf:RDF 
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:ldp="http://www.w3.org/ns/ldp#"
+    xmlns:ore="http://www.openarchives.org/ore/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:pcdm="http://pcdm.org/models#">
+
+    <rdf:Description rdf:about="http://pcdm.org/models#">
+      <dcterms:title xml:lang="en">Portland Common Data Model</dcterms:title>
+      <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2016/04/18</dcterms:modified>
+      <dcterms:publisher rdf:resource="http://www.duraspace.org/"/>
+      <rdfs:seeAlso rdf:resource="https://github.com/duraspace/pcdm/wiki"/>
+      <rdfs:comment xml:lang="en">Ontology for the Portland Common Data Model, intended to underlie a wide array of repository and DAMS applications.</rdfs:comment>
+      <owl:versionInfo>2016/04/18</owl:versionInfo>
+      <owl:priorVersion rdf:resource="http://pcdm.org/2015/09/28/models"/>
+    </rdf:Description>
+    
+    <rdfs:Class rdf:about="http://pcdm.org/models#Collection">
+      <rdfs:label xml:lang="en">Collection</rdfs:label>
+      <rdfs:comment xml:lang="en">
+        A Collection is a group of resources. Collections have descriptive metadata, access metadata,
+        and may links to works and/or collections. By default, member works and collections are an
+        unordered set, but can be ordered using the ORE Proxy class.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:about="http://pcdm.org/models#Object">
+      <rdfs:label xml:lang="en">Object</rdfs:label>
+      <rdfs:comment xml:lang="en">
+        An Object is an intellectual entity, sometimes called a "work", "digital object", etc.
+        Objects have descriptive metadata, access metadata, may contain files and other Objects as
+        member "components". Each level of a work is therefore represented by an Object instance,
+        and is capable of standing on its own, being linked to from Collections and other Objects.
+        Member Objects can be ordered using the ORE Proxy class.
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdfs:Class>
+   
+    <rdfs:Class rdf:about="http://pcdm.org/models#AlternateOrder">
+      <rdfs:label xml:lang="en">Alternate Order</rdfs:label>
+      <rdfs:comment xml:lang="en">
+        An AlternateOrder is an alternate ordering of its parent's members.  It should only order the
+        parent's members, and otherwise has all of the features of ordering (some members may be
+        omitted from the order, members may appear more than once in the order, etc.).
+      </rdfs:comment>
+      <rdfs:subClassOf rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdfs:Class>
+
+    <rdfs:Class rdf:about="http://pcdm.org/models#File">
+      <rdfs:label xml:lang="en">File</rdfs:label>
+      <rdfs:comment xml:lang="en">
+        A File is a sequence of binary data and is described by some accompanying metadata.
+        The metadata typically includes at least basic technical metadata (size, content type,
+        modification date, etc.), but can also include properties related to preservation,
+        digitization process, provenance, etc. Files MUST be contained by exactly one Object.
+      </rdfs:comment>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdfs:Class>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#hasFile">
+      <rdfs:label xml:lang="en">has file</rdfs:label>
+      <rdfs:comment xml:lang="en">Links to a File contained by this Object.</rdfs:comment>
+      <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:range rdf:resource="http://pcdm.org/models#File"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#fileOf">
+      <rdfs:label xml:lang="en">is file of</rdfs:label>
+      <rdfs:comment xml:lang="en">Links from a File to its containing Object.</rdfs:comment>
+      <rdfs:range rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:domain rdf:resource="http://pcdm.org/models#File"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+      <owl:inverseOf rdf:resource="http://pcdm.org/models#hasFile"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#hasMember">
+      <rdfs:label xml:lang="en">has member</rdfs:label>
+      <rdfs:comment xml:lang="en">Links to a subsidiary Object or Collection. Typically used to link
+          to component parts, such as a book linking to a page.  Note on transitivity: hasMember is
+          not defined as transitive, but applications may treat it as transitive as local needs
+          dictate.</rdfs:comment>
+      <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:range rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#memberOf">
+      <rdfs:label xml:lang="en">is member of</rdfs:label>
+      <rdfs:comment xml:lang="en">Links from an Object or Collection to a containing Object or Collection.</rdfs:comment>
+      <rdfs:range rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+      <owl:inverseOf rdf:resource="http://pcdm.org/models#hasMember"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#hasRelatedObject">
+      <rdfs:label xml:lang="en">has related object</rdfs:label>
+      <rdfs:comment xml:lang="en">Links to a related Object that is not a component part, such as an object representing a donor agreement or policies that govern the resource.</rdfs:comment>
+      <rdfs:domain rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:range rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/aggregates"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+    </rdf:Property>
+
+    <rdf:Property rdf:about="http://pcdm.org/models#relatedObjectOf">
+      <rdfs:label xml:lang="en">is related object of</rdfs:label>
+      <rdfs:comment xml:lang="en">Links from an Object to a Object or Collection that it is related to.</rdfs:comment>
+      <rdfs:range rdf:resource="http://www.openarchives.org/ore/terms/Aggregation"/>
+      <rdfs:domain rdf:resource="http://pcdm.org/models#Object"/>
+      <rdfs:subPropertyOf rdf:resource="http://www.openarchives.org/ore/terms/isAggregatedBy"/>
+      <rdfs:isDefinedBy rdf:resource="http://pcdm.org/models#"/>
+      <owl:inverseOf rdf:resource="http://pcdm.org/models#hasRelatedObject"/>
+    </rdf:Property>
+   
+</rdf:RDF>
